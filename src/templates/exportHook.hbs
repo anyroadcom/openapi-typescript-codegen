@@ -12,7 +12,7 @@ const client = new {{clientName}}();
 
 {{#each operations}}
 		{{#equals method 'GET'}}
-			export const use{{pascalCase name}} = ({{>parameters}}, options: typeof useQuery>[2]) => {
+			export const use{{pascalCase name}} = ({{>parameters}}, options: Parameters<typeof useQuery>[2]) => {
 				return useQuery(['{{ camelCase service}}', '{{ camelCase name }}', {{#each parameters}}{{name}}, {{/each}}], async () => {
 					return client.{{camelCase service}}.{{name}}({{#if parameters}}{
 						{{#each parameters}}
