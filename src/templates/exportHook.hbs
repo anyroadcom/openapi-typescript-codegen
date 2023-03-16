@@ -18,18 +18,18 @@ const client = new {{clientName}}();
 						{{#each parameters}}
 						{{name}},
 						{{/each}}
-					}{{/if}}, options);
-				});
+					}{{/if}});
+				}, options);
 			};
 		{{else}}
-			export const use{{pascalCase name}} = ({{>parameters}}, options: Parameters<typeof useMutation>[1]) => {
-				return useMutation(async () => {
+			export const use{{pascalCase name}} = (options: Parameters<typeof useMutation>[1]) => {
+				return useMutation(async ({{>parameters}}) => {
 					return client.{{camelCase service}}.{{name}}({{#if parameters}}{
 						{{#each parameters}}
 						{{name}},
 						{{/each}}
-					}{{/if}}, options);
-				});
+					}{{/if}});
+				}, options);
 			};
 		{{/equals}}
 {{/each}}
