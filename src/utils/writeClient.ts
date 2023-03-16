@@ -96,7 +96,7 @@ export const writeClient = async (
             useUnionTypes,
             useOptions,
             indent,
-            postfix,
+            postfixServices,
             clientName
         )
     }
