@@ -1,34 +1,36 @@
 {{>header}}
 
-import { hooks } from '@anyroad/core';
+import { useQuery, useMutation } from '@anyroad/hooks';
 import { {{clientName}} } from '../../client';
 {{#if imports}}
 	{{#each imports}}
 		import type { {{{this}}} } from '../models/{{{this}}}';
 	{{/each}}
 {{/if}}
-const { useQuery, useMutation } = hooks;
 
 const client = new {{clientName}}();
 
 {{#each operations}}
-	export const use{{pascalCase name}} = ({{>parameters}}) => {
 		{{#equals method 'GET'}}
-			return useQuery(['{{ camelCase service}}', '{{ camelCase name }}', {{#each parameters}}{{name}}, {{/each}}], async () => {
-			return client.{{camelCase service}}.{{name}}({{#if parameters}}{
-				{{#each parameters}}
-				{{name}},
-				{{/each}}
-	    	}{{/if}});
+			export const use{{pascalCase name}} = ({{>parameters}}, options: Parameters<typeof useQuery>[2]) => {
+				return useQuery(['{{ camelCase service}}', '{{ camelCase name }}', {{#each parameters}}{{name}}, {{/each}}], async () => {
+					return client.{{camelCase service}}.{{name}}({{#if parameters}}{
+						{{#each parameters}}
+						{{name}},
+						{{/each}}
+					}{{/if}}, options);
+				});
+			};
 		{{else}}
-		return useMutation(async () => {
-			return client.{{camelCase service}}.{{name}}({{#if parameters}}{
-				{{#each parameters}}
-				{{name}},
-				{{/each}}
-			}{{/if}});
+			export const use{{pascalCase name}} = ({{>parameters}}, options: Parameters<typeof useMutation>[1]) => {
+				return useMutation(async () => {
+					return client.{{camelCase service}}.{{name}}({{#if parameters}}{
+						{{#each parameters}}
+						{{name}},
+						{{/each}}
+					}{{/if}}, options);
+				});
+			};
 		{{/equals}}
-	    });
-	};
 {{/each}}
 
