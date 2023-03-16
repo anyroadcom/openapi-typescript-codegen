@@ -4,7 +4,7 @@ import { useQuery, useMutation } from '@anyroad/hooks';
 import { {{clientName}} } from '../../client';
 {{#if imports}}
 	{{#each imports}}
-		import type { {{{this}}} } from '../models/{{{this}}}';
+		import type { {{{this}}} } from '../../client/models/{{{this}}}';
 	{{/each}}
 {{/if}}
 
@@ -12,7 +12,7 @@ const client = new {{clientName}}();
 
 {{#each operations}}
 		{{#equals method 'GET'}}
-			export const use{{pascalCase name}} = ({{>parameters}}, options: Parameters<typeof useQuery>[2]) => {
+			export const use{{pascalCase name}} = ({{>parameters}}, options: typeof useQuery>[2]) => {
 				return useQuery(['{{ camelCase service}}', '{{ camelCase name }}', {{#each parameters}}{{name}}, {{/each}}], async () => {
 					return client.{{camelCase service}}.{{name}}({{#if parameters}}{
 						{{#each parameters}}
@@ -22,7 +22,7 @@ const client = new {{clientName}}();
 				}, options);
 			};
 		{{else}}
-			export const use{{pascalCase name}} = (options: Parameters<typeof useMutation>[1]) => {
+			export const use{{pascalCase name}} = (options: Parameters<typeof useMutation>[2]) => {
 				return useMutation(async ({{>parameters}}) => {
 					return client.{{camelCase service}}.{{name}}({{#if parameters}}{
 						{{#each parameters}}
