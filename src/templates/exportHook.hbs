@@ -13,7 +13,7 @@ const client = new {{clientName}}();
 
 {{#each operations}}
 		{{#equals method 'GET'}}
-			export const use{{pascalCase name}} = ({{>parameters}}, options?: useQueryOptions<{{>result}}>) => {
+			export const use{{pascalCase name}} = ({{>parameters}}, options?: UseQueryOptions<{{>result}}>) => {
 				return useQuery<{{>result}}>(['{{ camelCase service}}', '{{ camelCase name }}', {{#each parameters}}{{name}}, {{/each}}], async () => {
 					return client.{{camelCase service}}.{{name}}({{#if parameters}}{
 						{{#each parameters}}
@@ -23,7 +23,7 @@ const client = new {{clientName}}();
 				}, options);
 			};
 		{{else}}
-			export const use{{pascalCase name}} = (options?: useMutationOptions<{{>result}}>) => {
+			export const use{{pascalCase name}} = (options?: UseMutationOptions<{{>result}}>) => {
 				return useMutation<{{>result}}>(async ({{>parameters}}) => {
 					return client.{{camelCase service}}.{{name}}({{#if parameters}}{
 						{{#each parameters}}
