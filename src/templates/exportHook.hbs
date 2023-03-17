@@ -1,7 +1,7 @@
 {{>header}}
 
 import { useQuery, useMutation } from '@anyroad/hooks';
-import type { useQueryOptions, useMutationOptions } from '@anyroad/hooks';
+import type { UseQueryOptions, UseMutationOptions } from '@anyroad/hooks';
 import { {{clientName}} } from '../../client';
 {{#if imports}}
 	{{#each imports}}
@@ -24,7 +24,7 @@ const client = new {{clientName}}();
 			};
 		{{else}}
 			export const use{{pascalCase name}} = (options?: UseMutationOptions<{{>result}}>) => {
-				return useMutation<{{>result}}>(async ({{>parameters}}) => {
+				return useMutation<{{>result}}, any, any>(async ({{>parameters}}) => {
 					return client.{{camelCase service}}.{{name}}({{#if parameters}}{
 						{{#each parameters}}
 						{{name}},
