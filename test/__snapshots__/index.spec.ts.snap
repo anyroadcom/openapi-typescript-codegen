@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`v2 should generate: test/generated/v2/core/ApiError.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { ApiRequestOptions } from './ApiRequestOptions';
@@ -29,7 +30,8 @@ export class ApiError extends Error {
 `;
 
 exports[`v2 should generate: test/generated/v2/core/ApiRequestOptions.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export type ApiRequestOptions = {
@@ -49,7 +51,8 @@ export type ApiRequestOptions = {
 `;
 
 exports[`v2 should generate: test/generated/v2/core/ApiResult.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export type ApiResult = {
@@ -63,7 +66,8 @@ export type ApiResult = {
 `;
 
 exports[`v2 should generate: test/generated/v2/core/CancelablePromise.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export class CancelError extends Error {
@@ -115,7 +119,7 @@ export class CancelablePromise<T> implements Promise<T> {
                     return;
                 }
                 this.#isResolved = true;
-                this.#resolve?.(value);
+                if (this.#resolve) this.#resolve(value);
             };
 
             const onReject = (reason?: any): void => {
@@ -123,7 +127,7 @@ export class CancelablePromise<T> implements Promise<T> {
                     return;
                 }
                 this.#isRejected = true;
-                this.#reject?.(reason);
+                if (this.#reject) this.#reject(reason);
             };
 
             const onCancel = (cancelHandler: () => void): void => {
@@ -186,7 +190,7 @@ export class CancelablePromise<T> implements Promise<T> {
             }
         }
         this.#cancelHandlers.length = 0;
-        this.#reject?.(new CancelError('Request aborted'));
+        if (this.#reject) this.#reject(new CancelError('Request aborted'));
     }
 
     public get isCancelled(): boolean {
@@ -197,7 +201,8 @@ export class CancelablePromise<T> implements Promise<T> {
 `;
 
 exports[`v2 should generate: test/generated/v2/core/OpenAPI.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { ApiRequestOptions } from './ApiRequestOptions';
@@ -232,7 +237,8 @@ export const OpenAPI: OpenAPIConfig = {
 `;
 
 exports[`v2 should generate: test/generated/v2/core/request.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import { ApiError } from './ApiError';
@@ -555,7 +561,8 @@ export const request = <T>(config: OpenAPIConfig, options: ApiRequestOptions): C
 `;
 
 exports[`v2 should generate: test/generated/v2/index.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export { ApiError } from './core/ApiError';
@@ -681,10 +688,10 @@ export { TypesService } from './services/TypesService';
 `;
 
 exports[`v2 should generate: test/generated/v2/models/_default.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type _default = {
     name?: string;
 };
@@ -693,12 +700,11 @@ export type _default = {
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ArrayWithArray.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithString } from './ModelWithString';
-
 /**
  * This is a simple array containing an array
  */
@@ -707,10 +713,10 @@ export type ArrayWithArray = Array<Array<ModelWithString>>;
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ArrayWithBooleans.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a simple array with booleans
  */
@@ -719,10 +725,10 @@ export type ArrayWithBooleans = Array<boolean>;
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ArrayWithNumbers.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a simple array with numbers
  */
@@ -731,10 +737,10 @@ export type ArrayWithNumbers = Array<number>;
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ArrayWithProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a simple array with properties
  */
@@ -746,12 +752,11 @@ export type ArrayWithProperties = Array<{
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ArrayWithReferences.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithString } from './ModelWithString';
-
 /**
  * This is a simple array with references
  */
@@ -760,10 +765,10 @@ export type ArrayWithReferences = Array<ModelWithString>;
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ArrayWithStrings.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a simple array with strings
  */
@@ -772,10 +777,10 @@ export type ArrayWithStrings = Array<string>;
 `;
 
 exports[`v2 should generate: test/generated/v2/models/CommentWithBackticks.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * Testing backticks in string: \`backticks\` and \`\`\`multiple backticks\`\`\` should work
  */
@@ -784,10 +789,10 @@ export type CommentWithBackticks = number;
 `;
 
 exports[`v2 should generate: test/generated/v2/models/CommentWithBreaks.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * Testing multiline comments in string: First line
  * Second line
@@ -799,10 +804,10 @@ export type CommentWithBreaks = number;
 `;
 
 exports[`v2 should generate: test/generated/v2/models/CommentWithExpressionPlaceholders.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * Testing expression placeholders in string: \${expression} should work
  */
@@ -811,10 +816,10 @@ export type CommentWithExpressionPlaceholders = number;
 `;
 
 exports[`v2 should generate: test/generated/v2/models/CommentWithQuotes.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * Testing quotes in string: 'single quote''' and "double quotes""" should work
  */
@@ -823,10 +828,10 @@ export type CommentWithQuotes = number;
 `;
 
 exports[`v2 should generate: test/generated/v2/models/CommentWithReservedCharacters.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * Testing reserved characters in string: * inline * and ** inline ** should work
  */
@@ -835,10 +840,10 @@ export type CommentWithReservedCharacters = number;
 `;
 
 exports[`v2 should generate: test/generated/v2/models/CommentWithSlashes.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * Testing slashes in string: \\backwards\\\\\\ and /forwards/// should work
  */
@@ -847,10 +852,10 @@ export type CommentWithSlashes = number;
 `;
 
 exports[`v2 should generate: test/generated/v2/models/Date.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a type-only model that defines Date as a string
  */
@@ -859,12 +864,11 @@ export type Date = string;
 `;
 
 exports[`v2 should generate: test/generated/v2/models/DictionaryWithArray.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithString } from './ModelWithString';
-
 /**
  * This is a complex dictionary
  */
@@ -873,10 +877,10 @@ export type DictionaryWithArray = Record<string, Array<ModelWithString>>;
 `;
 
 exports[`v2 should generate: test/generated/v2/models/DictionaryWithDictionary.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a string dictionary
  */
@@ -885,10 +889,10 @@ export type DictionaryWithDictionary = Record<string, Record<string, string>>;
 `;
 
 exports[`v2 should generate: test/generated/v2/models/DictionaryWithProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a complex dictionary
  */
@@ -900,12 +904,11 @@ export type DictionaryWithProperties = Record<string, {
 `;
 
 exports[`v2 should generate: test/generated/v2/models/DictionaryWithReference.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithString } from './ModelWithString';
-
 /**
  * This is a string reference
  */
@@ -914,10 +917,10 @@ export type DictionaryWithReference = Record<string, ModelWithString>;
 `;
 
 exports[`v2 should generate: test/generated/v2/models/DictionaryWithString.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a string dictionary
  */
@@ -926,10 +929,10 @@ export type DictionaryWithString = Record<string, string>;
 `;
 
 exports[`v2 should generate: test/generated/v2/models/EnumFromDescription.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * Success=1,Warning=2,Error=3
  */
@@ -938,10 +941,10 @@ export type EnumFromDescription = number;
 `;
 
 exports[`v2 should generate: test/generated/v2/models/EnumWithExtensions.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a simple enum with numbers
  */
@@ -963,10 +966,10 @@ export enum EnumWithExtensions {
 `;
 
 exports[`v2 should generate: test/generated/v2/models/EnumWithNumbers.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a simple enum with numbers
  */
@@ -991,10 +994,10 @@ export enum EnumWithNumbers {
 `;
 
 exports[`v2 should generate: test/generated/v2/models/EnumWithStrings.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a simple enum with strings
  */
@@ -1009,12 +1012,11 @@ export enum EnumWithStrings {
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ModelThatExtends.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithString } from './ModelWithString';
-
 /**
  * This is a model that extends another model
  */
@@ -1027,13 +1029,12 @@ export type ModelThatExtends = (ModelWithString & {
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ModelThatExtendsExtends.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelThatExtends } from './ModelThatExtends';
 import type { ModelWithString } from './ModelWithString';
-
 /**
  * This is a model that extends another model
  */
@@ -1046,12 +1047,11 @@ export type ModelThatExtendsExtends = (ModelWithString & ModelThatExtends & {
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ModelWithArray.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithString } from './ModelWithString';
-
 /**
  * This is a model with one property containing an array
  */
@@ -1065,10 +1065,10 @@ export type ModelWithArray = {
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ModelWithBoolean.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model with one boolean property
  */
@@ -1083,10 +1083,10 @@ export type ModelWithBoolean = {
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ModelWithCircularReference.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model with one property containing a circular reference
  */
@@ -1098,10 +1098,10 @@ export type ModelWithCircularReference = {
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ModelWithDictionary.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model with one property containing a dictionary
  */
@@ -1113,12 +1113,11 @@ export type ModelWithDictionary = {
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ModelWithDuplicateImports.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithString } from './ModelWithString';
-
 /**
  * This is a model with duplicated imports
  */
@@ -1132,12 +1131,11 @@ export type ModelWithDuplicateImports = {
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ModelWithDuplicateProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithString } from './ModelWithString';
-
 /**
  * This is a model with duplicated properties
  */
@@ -1149,10 +1147,10 @@ export type ModelWithDuplicateProperties = {
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ModelWithEnum.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model with one enum
  */
@@ -1170,9 +1168,7 @@ export type ModelWithEnum = {
      */
     bool?: boolean;
 };
-
 export namespace ModelWithEnum {
-
     /**
      * This is a simple enum with strings
      */
@@ -1181,7 +1177,6 @@ export namespace ModelWithEnum {
         WARNING = 'Warning',
         ERROR = 'Error',
     }
-
     /**
      * These are the HTTP error code enums
      */
@@ -1193,18 +1188,16 @@ export namespace ModelWithEnum {
         _500_FOO_BAR = '500 foo.bar',
         _600_FOO_BAR = '600 foo&bar',
     }
-
-
 }
 
 "
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ModelWithEnumFromDescription.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model with one enum
  */
@@ -1219,10 +1212,10 @@ export type ModelWithEnumFromDescription = {
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ModelWithInteger.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model with one number property
  */
@@ -1237,10 +1230,10 @@ export type ModelWithInteger = {
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ModelWithNestedEnums.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model with nested enums
  */
@@ -1255,10 +1248,10 @@ export type ModelWithNestedEnums = {
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ModelWithNestedProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model with one nested property
  */
@@ -1274,10 +1267,10 @@ export type ModelWithNestedProperties = {
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ModelWithNullableString.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model with one string property
  */
@@ -1296,10 +1289,10 @@ export type ModelWithNullableString = {
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ModelWithOrderedProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model with ordered properties
  */
@@ -1313,10 +1306,10 @@ export type ModelWithOrderedProperties = {
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ModelWithPattern.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model that contains a some patterns
  */
@@ -1334,12 +1327,11 @@ export type ModelWithPattern = {
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ModelWithProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithString } from './ModelWithString';
-
 /**
  * This is a model with one nested property
  */
@@ -1361,12 +1353,11 @@ export type ModelWithProperties = {
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ModelWithReference.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithProperties } from './ModelWithProperties';
-
 /**
  * This is a model with one property containing a reference
  */
@@ -1378,10 +1369,10 @@ export type ModelWithReference = {
 `;
 
 exports[`v2 should generate: test/generated/v2/models/ModelWithString.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model with one string property
  */
@@ -1396,10 +1387,10 @@ export type ModelWithString = {
 `;
 
 exports[`v2 should generate: test/generated/v2/models/SimpleBoolean.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a simple boolean
  */
@@ -1408,10 +1399,10 @@ export type SimpleBoolean = boolean;
 `;
 
 exports[`v2 should generate: test/generated/v2/models/SimpleFile.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a simple file
  */
@@ -1420,10 +1411,10 @@ export type SimpleFile = Blob;
 `;
 
 exports[`v2 should generate: test/generated/v2/models/SimpleInteger.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a simple number
  */
@@ -1432,12 +1423,11 @@ export type SimpleInteger = number;
 `;
 
 exports[`v2 should generate: test/generated/v2/models/SimpleReference.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithString } from './ModelWithString';
-
 /**
  * This is a simple reference
  */
@@ -1446,10 +1436,10 @@ export type SimpleReference = ModelWithString;
 `;
 
 exports[`v2 should generate: test/generated/v2/models/SimpleString.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a simple string
  */
@@ -1458,10 +1448,10 @@ export type SimpleString = string;
 `;
 
 exports[`v2 should generate: test/generated/v2/models/SimpleStringWithPattern.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a simple string
  */
@@ -1470,7 +1460,8 @@ export type SimpleStringWithPattern = string;
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$_default.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $_default = {
@@ -1484,7 +1475,8 @@ export const $_default = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ArrayWithArray.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ArrayWithArray = {
@@ -1500,7 +1492,8 @@ export const $ArrayWithArray = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ArrayWithBooleans.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ArrayWithBooleans = {
@@ -1513,7 +1506,8 @@ export const $ArrayWithBooleans = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ArrayWithNumbers.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ArrayWithNumbers = {
@@ -1526,7 +1520,8 @@ export const $ArrayWithNumbers = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ArrayWithProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ArrayWithProperties = {
@@ -1546,7 +1541,8 @@ export const $ArrayWithProperties = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ArrayWithReferences.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ArrayWithReferences = {
@@ -1559,7 +1555,8 @@ export const $ArrayWithReferences = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ArrayWithStrings.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ArrayWithStrings = {
@@ -1572,7 +1569,8 @@ export const $ArrayWithStrings = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$CommentWithBackticks.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CommentWithBackticks = {
@@ -1583,21 +1581,22 @@ export const $CommentWithBackticks = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$CommentWithBreaks.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CommentWithBreaks = {
     type: 'number',
     description: \`Testing multiline comments in string: First line
     Second line
-
     Fourth line\`,
 } as const;
 "
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$CommentWithExpressionPlaceholders.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CommentWithExpressionPlaceholders = {
@@ -1608,7 +1607,8 @@ export const $CommentWithExpressionPlaceholders = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$CommentWithQuotes.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CommentWithQuotes = {
@@ -1619,7 +1619,8 @@ export const $CommentWithQuotes = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$CommentWithReservedCharacters.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CommentWithReservedCharacters = {
@@ -1630,7 +1631,8 @@ export const $CommentWithReservedCharacters = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$CommentWithSlashes.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CommentWithSlashes = {
@@ -1641,7 +1643,8 @@ export const $CommentWithSlashes = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$Date.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $Date = {
@@ -1652,7 +1655,8 @@ export const $Date = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$DictionaryWithArray.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $DictionaryWithArray = {
@@ -1668,7 +1672,8 @@ export const $DictionaryWithArray = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$DictionaryWithDictionary.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $DictionaryWithDictionary = {
@@ -1684,7 +1689,8 @@ export const $DictionaryWithDictionary = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$DictionaryWithProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $DictionaryWithProperties = {
@@ -1704,7 +1710,8 @@ export const $DictionaryWithProperties = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$DictionaryWithReference.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $DictionaryWithReference = {
@@ -1717,7 +1724,8 @@ export const $DictionaryWithReference = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$DictionaryWithString.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $DictionaryWithString = {
@@ -1730,7 +1738,8 @@ export const $DictionaryWithString = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$EnumFromDescription.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $EnumFromDescription = {
@@ -1741,7 +1750,8 @@ export const $EnumFromDescription = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$EnumWithExtensions.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $EnumWithExtensions = {
@@ -1751,7 +1761,8 @@ export const $EnumWithExtensions = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$EnumWithNumbers.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $EnumWithNumbers = {
@@ -1761,7 +1772,8 @@ export const $EnumWithNumbers = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$EnumWithStrings.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $EnumWithStrings = {
@@ -1771,7 +1783,8 @@ export const $EnumWithStrings = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ModelThatExtends.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelThatExtends = {
@@ -1794,7 +1807,8 @@ export const $ModelThatExtends = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ModelThatExtendsExtends.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelThatExtendsExtends = {
@@ -1819,7 +1833,8 @@ export const $ModelThatExtendsExtends = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ModelWithArray.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithArray = {
@@ -1849,7 +1864,8 @@ export const $ModelWithArray = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ModelWithBoolean.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithBoolean = {
@@ -1865,7 +1881,8 @@ export const $ModelWithBoolean = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ModelWithCircularReference.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithCircularReference = {
@@ -1880,7 +1897,8 @@ export const $ModelWithCircularReference = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ModelWithDictionary.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithDictionary = {
@@ -1898,7 +1916,8 @@ export const $ModelWithDictionary = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ModelWithDuplicateImports.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithDuplicateImports = {
@@ -1919,7 +1938,8 @@ export const $ModelWithDuplicateImports = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ModelWithDuplicateProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithDuplicateProperties = {
@@ -1934,7 +1954,8 @@ export const $ModelWithDuplicateProperties = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ModelWithEnum.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithEnum = {
@@ -1956,7 +1977,8 @@ export const $ModelWithEnum = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ModelWithEnumFromDescription.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithEnumFromDescription = {
@@ -1972,7 +1994,8 @@ export const $ModelWithEnumFromDescription = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ModelWithInteger.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithInteger = {
@@ -1988,7 +2011,8 @@ export const $ModelWithInteger = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ModelWithNestedEnums.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithNestedEnums = {
@@ -2026,7 +2050,8 @@ export const $ModelWithNestedEnums = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ModelWithNestedProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithNestedProperties = {
@@ -2055,7 +2080,8 @@ export const $ModelWithNestedProperties = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ModelWithNullableString.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithNullableString = {
@@ -2078,7 +2104,8 @@ export const $ModelWithNullableString = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ModelWithOrderedProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithOrderedProperties = {
@@ -2099,7 +2126,8 @@ export const $ModelWithOrderedProperties = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ModelWithPattern.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithPattern = {
@@ -2143,7 +2171,8 @@ export const $ModelWithPattern = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ModelWithProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithProperties = {
@@ -2193,7 +2222,8 @@ export const $ModelWithProperties = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ModelWithReference.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithReference = {
@@ -2208,7 +2238,8 @@ export const $ModelWithReference = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$ModelWithString.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithString = {
@@ -2224,7 +2255,8 @@ export const $ModelWithString = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$SimpleBoolean.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $SimpleBoolean = {
@@ -2235,7 +2267,8 @@ export const $SimpleBoolean = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$SimpleFile.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $SimpleFile = {
@@ -2246,7 +2279,8 @@ export const $SimpleFile = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$SimpleInteger.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $SimpleInteger = {
@@ -2257,7 +2291,8 @@ export const $SimpleInteger = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$SimpleReference.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $SimpleReference = {
@@ -2268,7 +2303,8 @@ export const $SimpleReference = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$SimpleString.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $SimpleString = {
@@ -2279,7 +2315,8 @@ export const $SimpleString = {
 `;
 
 exports[`v2 should generate: test/generated/v2/schemas/$SimpleStringWithPattern.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $SimpleStringWithPattern = {
@@ -2292,15 +2329,14 @@ export const $SimpleStringWithPattern = {
 `;
 
 exports[`v2 should generate: test/generated/v2/services/CollectionFormatService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class CollectionFormatService {
-
     /**
      * @param parameterArrayCsv This is an array parameter that is sent as csv format (comma-separated values)
      * @param parameterArraySsv This is an array parameter that is sent as ssv format (space-separated values)
@@ -2328,23 +2364,20 @@ export class CollectionFormatService {
             },
         });
     }
-
 }
 "
 `;
 
 exports[`v2 should generate: test/generated/v2/services/ComplexService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { ModelWithString } from '../models/ModelWithString';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class ComplexService {
-
     /**
      * @param parameterObject Parameter containing object
      * @param parameterReference Parameter containing reference
@@ -2374,21 +2407,19 @@ export class ComplexService {
             },
         });
     }
-
 }
 "
 `;
 
 exports[`v2 should generate: test/generated/v2/services/DefaultService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class DefaultService {
-
     /**
      * @throws ApiError
      */
@@ -2398,23 +2429,20 @@ export class DefaultService {
             url: '/api/v{api-version}/no-tag',
         });
     }
-
 }
 "
 `;
 
 exports[`v2 should generate: test/generated/v2/services/DefaultsService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { ModelWithString } from '../models/ModelWithString';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class DefaultsService {
-
     /**
      * @param parameterString This is a simple string with default value
      * @param parameterNumber This is a simple number with default value
@@ -2444,7 +2472,6 @@ export class DefaultsService {
             },
         });
     }
-
     /**
      * @param parameterString This is a simple string that is optional with default value
      * @param parameterNumber This is a simple number that is optional with default value
@@ -2474,7 +2501,6 @@ export class DefaultsService {
             },
         });
     }
-
     /**
      * @param parameterStringWithNoDefault This is a string with no default
      * @param parameterOptionalStringWithDefault This is a optional string with default
@@ -2511,21 +2537,19 @@ export class DefaultsService {
             },
         });
     }
-
 }
 "
 `;
 
 exports[`v2 should generate: test/generated/v2/services/DescriptionsService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class DescriptionsService {
-
     /**
      * @param parameterWithBreaks Testing multiline comments in string: First line
      * Second line
@@ -2559,21 +2583,19 @@ export class DescriptionsService {
             },
         });
     }
-
 }
 "
 `;
 
 exports[`v2 should generate: test/generated/v2/services/DuplicateService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class DuplicateService {
-
     /**
      * @throws ApiError
      */
@@ -2583,7 +2605,6 @@ export class DuplicateService {
             url: '/api/v{api-version}/duplicate',
         });
     }
-
     /**
      * @throws ApiError
      */
@@ -2593,7 +2614,6 @@ export class DuplicateService {
             url: '/api/v{api-version}/duplicate',
         });
     }
-
     /**
      * @throws ApiError
      */
@@ -2603,7 +2623,6 @@ export class DuplicateService {
             url: '/api/v{api-version}/duplicate',
         });
     }
-
     /**
      * @throws ApiError
      */
@@ -2613,21 +2632,19 @@ export class DuplicateService {
             url: '/api/v{api-version}/duplicate',
         });
     }
-
 }
 "
 `;
 
 exports[`v2 should generate: test/generated/v2/services/ErrorService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class ErrorService {
-
     /**
      * @param status Status code to return
      * @returns any Custom message: Successful response
@@ -2650,21 +2667,19 @@ export class ErrorService {
             },
         });
     }
-
 }
 "
 `;
 
 exports[`v2 should generate: test/generated/v2/services/HeaderService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class HeaderService {
-
     /**
      * @returns string Successful response
      * @throws ApiError
@@ -2680,21 +2695,19 @@ export class HeaderService {
             },
         });
     }
-
 }
 "
 `;
 
 exports[`v2 should generate: test/generated/v2/services/MultipleTags1Service.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class MultipleTags1Service {
-
     /**
      * @returns void
      * @throws ApiError
@@ -2705,7 +2718,6 @@ export class MultipleTags1Service {
             url: '/api/v{api-version}/multiple-tags/a',
         });
     }
-
     /**
      * @returns void
      * @throws ApiError
@@ -2716,21 +2728,19 @@ export class MultipleTags1Service {
             url: '/api/v{api-version}/multiple-tags/b',
         });
     }
-
 }
 "
 `;
 
 exports[`v2 should generate: test/generated/v2/services/MultipleTags2Service.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class MultipleTags2Service {
-
     /**
      * @returns void
      * @throws ApiError
@@ -2741,7 +2751,6 @@ export class MultipleTags2Service {
             url: '/api/v{api-version}/multiple-tags/a',
         });
     }
-
     /**
      * @returns void
      * @throws ApiError
@@ -2752,21 +2761,19 @@ export class MultipleTags2Service {
             url: '/api/v{api-version}/multiple-tags/b',
         });
     }
-
 }
 "
 `;
 
 exports[`v2 should generate: test/generated/v2/services/MultipleTags3Service.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class MultipleTags3Service {
-
     /**
      * @returns void
      * @throws ApiError
@@ -2777,21 +2784,19 @@ export class MultipleTags3Service {
             url: '/api/v{api-version}/multiple-tags/b',
         });
     }
-
 }
 "
 `;
 
 exports[`v2 should generate: test/generated/v2/services/NoContentService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class NoContentService {
-
     /**
      * @returns void
      * @throws ApiError
@@ -2802,21 +2807,19 @@ export class NoContentService {
             url: '/api/v{api-version}/no-content',
         });
     }
-
 }
 "
 `;
 
 exports[`v2 should generate: test/generated/v2/services/ParametersService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class ParametersService {
-
     /**
      * @param parameterHeader This is the parameter that goes into the header
      * @param parameterQuery This is the parameter that goes into the query params
@@ -2850,7 +2853,6 @@ export class ParametersService {
             body: parameterBody,
         });
     }
-
     /**
      * @param parameterHeader This is the parameter that goes into the request header
      * @param parameterQuery This is the parameter that goes into the request query params
@@ -2893,25 +2895,22 @@ export class ParametersService {
             body: parameterBody,
         });
     }
-
 }
 "
 `;
 
 exports[`v2 should generate: test/generated/v2/services/ResponseService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { ModelThatExtends } from '../models/ModelThatExtends';
 import type { ModelThatExtendsExtends } from '../models/ModelThatExtendsExtends';
 import type { ModelWithString } from '../models/ModelWithString';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class ResponseService {
-
     /**
      * @returns ModelWithString Message for default response
      * @throws ApiError
@@ -2922,7 +2921,6 @@ export class ResponseService {
             url: '/api/v{api-version}/response',
         });
     }
-
     /**
      * @returns ModelWithString Message for default response
      * @throws ApiError
@@ -2938,7 +2936,6 @@ export class ResponseService {
             },
         });
     }
-
     /**
      * @returns any Message for 200 response
      * @returns ModelWithString Message for default response
@@ -2961,21 +2958,19 @@ export class ResponseService {
             },
         });
     }
-
 }
 "
 `;
 
 exports[`v2 should generate: test/generated/v2/services/SimpleService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class SimpleService {
-
     /**
      * @throws ApiError
      */
@@ -2985,7 +2980,6 @@ export class SimpleService {
             url: '/api/v{api-version}/simple',
         });
     }
-
     /**
      * @throws ApiError
      */
@@ -2995,7 +2989,6 @@ export class SimpleService {
             url: '/api/v{api-version}/simple',
         });
     }
-
     /**
      * @throws ApiError
      */
@@ -3005,7 +2998,6 @@ export class SimpleService {
             url: '/api/v{api-version}/simple',
         });
     }
-
     /**
      * @throws ApiError
      */
@@ -3015,7 +3007,6 @@ export class SimpleService {
             url: '/api/v{api-version}/simple',
         });
     }
-
     /**
      * @throws ApiError
      */
@@ -3025,7 +3016,6 @@ export class SimpleService {
             url: '/api/v{api-version}/simple',
         });
     }
-
     /**
      * @throws ApiError
      */
@@ -3035,7 +3025,6 @@ export class SimpleService {
             url: '/api/v{api-version}/simple',
         });
     }
-
     /**
      * @throws ApiError
      */
@@ -3045,21 +3034,19 @@ export class SimpleService {
             url: '/api/v{api-version}/simple',
         });
     }
-
 }
 "
 `;
 
 exports[`v2 should generate: test/generated/v2/services/TypesService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class TypesService {
-
     /**
      * @param parameterArray This is an array parameter
      * @param parameterDictionary This is a dictionary parameter
@@ -3102,13 +3089,13 @@ export class TypesService {
             },
         });
     }
-
 }
 "
 `;
 
 exports[`v3 should generate: test/generated/v3/core/ApiError.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { ApiRequestOptions } from './ApiRequestOptions';
@@ -3136,7 +3123,8 @@ export class ApiError extends Error {
 `;
 
 exports[`v3 should generate: test/generated/v3/core/ApiRequestOptions.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export type ApiRequestOptions = {
@@ -3156,7 +3144,8 @@ export type ApiRequestOptions = {
 `;
 
 exports[`v3 should generate: test/generated/v3/core/ApiResult.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export type ApiResult = {
@@ -3170,7 +3159,8 @@ export type ApiResult = {
 `;
 
 exports[`v3 should generate: test/generated/v3/core/CancelablePromise.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export class CancelError extends Error {
@@ -3222,7 +3212,7 @@ export class CancelablePromise<T> implements Promise<T> {
                     return;
                 }
                 this.#isResolved = true;
-                this.#resolve?.(value);
+                if (this.#resolve) this.#resolve(value);
             };
 
             const onReject = (reason?: any): void => {
@@ -3230,7 +3220,7 @@ export class CancelablePromise<T> implements Promise<T> {
                     return;
                 }
                 this.#isRejected = true;
-                this.#reject?.(reason);
+                if (this.#reject) this.#reject(reason);
             };
 
             const onCancel = (cancelHandler: () => void): void => {
@@ -3293,7 +3283,7 @@ export class CancelablePromise<T> implements Promise<T> {
             }
         }
         this.#cancelHandlers.length = 0;
-        this.#reject?.(new CancelError('Request aborted'));
+        if (this.#reject) this.#reject(new CancelError('Request aborted'));
     }
 
     public get isCancelled(): boolean {
@@ -3304,7 +3294,8 @@ export class CancelablePromise<T> implements Promise<T> {
 `;
 
 exports[`v3 should generate: test/generated/v3/core/OpenAPI.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { ApiRequestOptions } from './ApiRequestOptions';
@@ -3339,7 +3330,8 @@ export const OpenAPI: OpenAPIConfig = {
 `;
 
 exports[`v3 should generate: test/generated/v3/core/request.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import { ApiError } from './ApiError';
@@ -3662,7 +3654,8 @@ export const request = <T>(config: OpenAPIConfig, options: ApiRequestOptions): C
 `;
 
 exports[`v3 should generate: test/generated/v3/index.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export { ApiError } from './core/ApiError';
@@ -3835,10 +3828,10 @@ export { UploadService } from './services/UploadService';
 `;
 
 exports[`v3 should generate: test/generated/v3/models/_default.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type _default = {
     name?: string;
 };
@@ -3847,12 +3840,11 @@ export type _default = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ArrayWithArray.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithString } from './ModelWithString';
-
 /**
  * This is a simple array containing an array
  */
@@ -3861,10 +3853,10 @@ export type ArrayWithArray = Array<Array<ModelWithString>>;
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ArrayWithBooleans.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a simple array with booleans
  */
@@ -3873,10 +3865,10 @@ export type ArrayWithBooleans = Array<boolean>;
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ArrayWithNumbers.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a simple array with numbers
  */
@@ -3885,10 +3877,10 @@ export type ArrayWithNumbers = Array<number>;
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ArrayWithProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a simple array with properties
  */
@@ -3900,12 +3892,11 @@ export type ArrayWithProperties = Array<{
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ArrayWithReferences.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithString } from './ModelWithString';
-
 /**
  * This is a simple array with references
  */
@@ -3914,10 +3905,10 @@ export type ArrayWithReferences = Array<ModelWithString>;
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ArrayWithStrings.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a simple array with strings
  */
@@ -3926,10 +3917,10 @@ export type ArrayWithStrings = Array<string>;
 `;
 
 exports[`v3 should generate: test/generated/v3/models/CommentWithBackticks.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * Testing backticks in string: \`backticks\` and \`\`\`multiple backticks\`\`\` should work
  */
@@ -3938,10 +3929,10 @@ export type CommentWithBackticks = number;
 `;
 
 exports[`v3 should generate: test/generated/v3/models/CommentWithBreaks.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * Testing multiline comments in string: First line
  * Second line
@@ -3953,10 +3944,10 @@ export type CommentWithBreaks = number;
 `;
 
 exports[`v3 should generate: test/generated/v3/models/CommentWithExpressionPlaceholders.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * Testing expression placeholders in string: \${expression} should work
  */
@@ -3965,10 +3956,10 @@ export type CommentWithExpressionPlaceholders = number;
 `;
 
 exports[`v3 should generate: test/generated/v3/models/CommentWithQuotes.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * Testing quotes in string: 'single quote''' and "double quotes""" should work
  */
@@ -3977,10 +3968,10 @@ export type CommentWithQuotes = number;
 `;
 
 exports[`v3 should generate: test/generated/v3/models/CommentWithReservedCharacters.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * Testing reserved characters in string: * inline * and ** inline ** should work
  */
@@ -3989,10 +3980,10 @@ export type CommentWithReservedCharacters = number;
 `;
 
 exports[`v3 should generate: test/generated/v3/models/CommentWithSlashes.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * Testing slashes in string: \\backwards\\\\\\ and /forwards/// should work
  */
@@ -4001,10 +3992,10 @@ export type CommentWithSlashes = number;
 `;
 
 exports[`v3 should generate: test/generated/v3/models/CompositionBaseModel.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a base model with two simple optional properties
  */
@@ -4017,12 +4008,11 @@ export type CompositionBaseModel = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/CompositionExtendedModel.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { CompositionBaseModel } from './CompositionBaseModel';
-
 /**
  * This is a model that extends the base model
  */
@@ -4036,14 +4026,13 @@ export type CompositionExtendedModel = (CompositionBaseModel & {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/CompositionWithAllOfAndNullable.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithArray } from './ModelWithArray';
 import type { ModelWithDictionary } from './ModelWithDictionary';
 import type { ModelWithEnum } from './ModelWithEnum';
-
 /**
  * This is a model with one property with a 'all of' relationship
  */
@@ -4057,15 +4046,14 @@ export type CompositionWithAllOfAndNullable = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/CompositionWithAnyOf.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithArray } from './ModelWithArray';
 import type { ModelWithDictionary } from './ModelWithDictionary';
 import type { ModelWithEnum } from './ModelWithEnum';
 import type { ModelWithString } from './ModelWithString';
-
 /**
  * This is a model with one property with a 'any of' relationship
  */
@@ -4077,14 +4065,13 @@ export type CompositionWithAnyOf = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/CompositionWithAnyOfAndNullable.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithArray } from './ModelWithArray';
 import type { ModelWithDictionary } from './ModelWithDictionary';
 import type { ModelWithEnum } from './ModelWithEnum';
-
 /**
  * This is a model with one property with a 'any of' relationship
  */
@@ -4098,10 +4085,10 @@ export type CompositionWithAnyOfAndNullable = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/CompositionWithAnyOfAnonymous.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model with one property with a 'any of' relationship where the options are not $ref
  */
@@ -4115,15 +4102,14 @@ export type CompositionWithAnyOfAnonymous = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/CompositionWithOneOf.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithArray } from './ModelWithArray';
 import type { ModelWithDictionary } from './ModelWithDictionary';
 import type { ModelWithEnum } from './ModelWithEnum';
 import type { ModelWithString } from './ModelWithString';
-
 /**
  * This is a model with one property with a 'one of' relationship
  */
@@ -4135,10 +4121,10 @@ export type CompositionWithOneOf = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/CompositionWithOneOfAndComplexArrayDictionary.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model that contains a dictionary of complex arrays (composited) within composition
  */
@@ -4150,14 +4136,13 @@ export type CompositionWithOneOfAndComplexArrayDictionary = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/CompositionWithOneOfAndNullable.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithArray } from './ModelWithArray';
 import type { ModelWithDictionary } from './ModelWithDictionary';
 import type { ModelWithEnum } from './ModelWithEnum';
-
 /**
  * This is a model with one property with a 'one of' relationship
  */
@@ -4171,10 +4156,10 @@ export type CompositionWithOneOfAndNullable = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/CompositionWithOneOfAndSimpleArrayDictionary.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model that contains a dictionary of simple arrays within composition
  */
@@ -4186,10 +4171,10 @@ export type CompositionWithOneOfAndSimpleArrayDictionary = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/CompositionWithOneOfAndSimpleDictionary.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model that contains a simple dictionary within composition
  */
@@ -4201,10 +4186,10 @@ export type CompositionWithOneOfAndSimpleDictionary = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/CompositionWithOneOfAnonymous.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model with one property with a 'one of' relationship where the options are not $ref
  */
@@ -4218,13 +4203,12 @@ export type CompositionWithOneOfAnonymous = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/CompositionWithOneOfDiscriminator.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelCircle } from './ModelCircle';
 import type { ModelSquare } from './ModelSquare';
-
 /**
  * This is a model with one property with a 'one of' relationship where the options are not $ref
  */
@@ -4234,10 +4218,10 @@ export type CompositionWithOneOfDiscriminator = (ModelCircle | ModelSquare);
 `;
 
 exports[`v3 should generate: test/generated/v3/models/DeprecatedModel.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a deprecated model with a deprecated property
  * @deprecated
@@ -4254,12 +4238,11 @@ export type DeprecatedModel = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/DictionaryWithArray.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithString } from './ModelWithString';
-
 /**
  * This is a complex dictionary
  */
@@ -4268,10 +4251,10 @@ export type DictionaryWithArray = Record<string, Array<ModelWithString>>;
 `;
 
 exports[`v3 should generate: test/generated/v3/models/DictionaryWithDictionary.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a string dictionary
  */
@@ -4280,10 +4263,10 @@ export type DictionaryWithDictionary = Record<string, Record<string, string>>;
 `;
 
 exports[`v3 should generate: test/generated/v3/models/DictionaryWithProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a complex dictionary
  */
@@ -4295,12 +4278,11 @@ export type DictionaryWithProperties = Record<string, {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/DictionaryWithReference.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithString } from './ModelWithString';
-
 /**
  * This is a string reference
  */
@@ -4309,10 +4291,10 @@ export type DictionaryWithReference = Record<string, ModelWithString>;
 `;
 
 exports[`v3 should generate: test/generated/v3/models/DictionaryWithString.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a string dictionary
  */
@@ -4321,10 +4303,10 @@ export type DictionaryWithString = Record<string, string>;
 `;
 
 exports[`v3 should generate: test/generated/v3/models/EnumFromDescription.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * Success=1,Warning=2,Error=3
  */
@@ -4333,10 +4315,10 @@ export type EnumFromDescription = number;
 `;
 
 exports[`v3 should generate: test/generated/v3/models/EnumWithExtensions.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a simple enum with numbers
  */
@@ -4358,10 +4340,10 @@ export enum EnumWithExtensions {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/EnumWithNumbers.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a simple enum with numbers
  */
@@ -4386,10 +4368,10 @@ export enum EnumWithNumbers {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/EnumWithStrings.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a simple enum with strings
  */
@@ -4404,10 +4386,10 @@ export enum EnumWithStrings {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/File.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type File = {
     readonly id?: string;
     readonly updated_at?: string;
@@ -4420,10 +4402,10 @@ export type File = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/FreeFormObjectWithAdditionalPropertiesEqEmptyObject.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a free-form object with additionalProperties: {}.
  */
@@ -4432,10 +4414,10 @@ export type FreeFormObjectWithAdditionalPropertiesEqEmptyObject = Record<string,
 `;
 
 exports[`v3 should generate: test/generated/v3/models/FreeFormObjectWithAdditionalPropertiesEqTrue.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a free-form object with additionalProperties: true.
  */
@@ -4444,10 +4426,10 @@ export type FreeFormObjectWithAdditionalPropertiesEqTrue = Record<string, any>;
 `;
 
 exports[`v3 should generate: test/generated/v3/models/FreeFormObjectWithoutAdditionalProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a free-form object without additionalProperties.
  */
@@ -4456,10 +4438,10 @@ export type FreeFormObjectWithoutAdditionalProperties = Record<string, any>;
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ModelCircle.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * Circle
  */
@@ -4472,10 +4454,10 @@ export type ModelCircle = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ModelSquare.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * Square
  */
@@ -4488,12 +4470,11 @@ export type ModelSquare = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ModelThatExtends.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithString } from './ModelWithString';
-
 /**
  * This is a model that extends another model
  */
@@ -4506,13 +4487,12 @@ export type ModelThatExtends = (ModelWithString & {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ModelThatExtendsExtends.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelThatExtends } from './ModelThatExtends';
 import type { ModelWithString } from './ModelWithString';
-
 /**
  * This is a model that extends another model
  */
@@ -4525,12 +4505,11 @@ export type ModelThatExtendsExtends = (ModelWithString & ModelThatExtends & {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ModelWithArray.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithString } from './ModelWithString';
-
 /**
  * This is a model with one property containing an array
  */
@@ -4544,10 +4523,10 @@ export type ModelWithArray = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ModelWithBoolean.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model with one boolean property
  */
@@ -4562,10 +4541,10 @@ export type ModelWithBoolean = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ModelWithCircularReference.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model with one property containing a circular reference
  */
@@ -4577,10 +4556,10 @@ export type ModelWithCircularReference = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ModelWithDictionary.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model with one property containing a dictionary
  */
@@ -4592,12 +4571,11 @@ export type ModelWithDictionary = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ModelWithDuplicateImports.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithString } from './ModelWithString';
-
 /**
  * This is a model with duplicated imports
  */
@@ -4611,12 +4589,11 @@ export type ModelWithDuplicateImports = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ModelWithDuplicateProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithString } from './ModelWithString';
-
 /**
  * This is a model with duplicated properties
  */
@@ -4628,10 +4605,10 @@ export type ModelWithDuplicateProperties = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ModelWithEnum.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model with one enum
  */
@@ -4649,9 +4626,7 @@ export type ModelWithEnum = {
      */
     bool?: boolean;
 };
-
 export namespace ModelWithEnum {
-
     /**
      * This is a simple enum with strings
      */
@@ -4660,7 +4635,6 @@ export namespace ModelWithEnum {
         WARNING = 'Warning',
         ERROR = 'Error',
     }
-
     /**
      * These are the HTTP error code enums
      */
@@ -4672,18 +4646,16 @@ export namespace ModelWithEnum {
         _500_FOO_BAR = '500 foo.bar',
         _600_FOO_BAR = '600 foo&bar',
     }
-
-
 }
 
 "
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ModelWithEnumFromDescription.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model with one enum
  */
@@ -4698,10 +4670,10 @@ export type ModelWithEnumFromDescription = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ModelWithInteger.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model with one number property
  */
@@ -4716,10 +4688,10 @@ export type ModelWithInteger = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ModelWithNestedEnums.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model with nested enums
  */
@@ -4734,10 +4706,10 @@ export type ModelWithNestedEnums = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ModelWithNestedProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model with one nested property
  */
@@ -4753,10 +4725,10 @@ export type ModelWithNestedProperties = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ModelWithNullableString.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model with one string property
  */
@@ -4783,10 +4755,10 @@ export type ModelWithNullableString = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ModelWithOrderedProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model with ordered properties
  */
@@ -4800,10 +4772,10 @@ export type ModelWithOrderedProperties = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ModelWithPattern.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model that contains a some patterns
  */
@@ -4821,12 +4793,11 @@ export type ModelWithPattern = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ModelWithProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithString } from './ModelWithString';
-
 /**
  * This is a model with one nested property
  */
@@ -4849,12 +4820,11 @@ export type ModelWithProperties = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ModelWithReference.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithProperties } from './ModelWithProperties';
-
 /**
  * This is a model with one property containing a reference
  */
@@ -4866,10 +4836,10 @@ export type ModelWithReference = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/ModelWithString.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a model with one string property
  */
@@ -4884,10 +4854,10 @@ export type ModelWithString = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/Pageable.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 export type Pageable = {
     page?: number;
     size?: number;
@@ -4898,10 +4868,10 @@ export type Pageable = {
 `;
 
 exports[`v3 should generate: test/generated/v3/models/SimpleBoolean.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a simple boolean
  */
@@ -4910,10 +4880,10 @@ export type SimpleBoolean = boolean;
 `;
 
 exports[`v3 should generate: test/generated/v3/models/SimpleFile.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a simple file
  */
@@ -4922,10 +4892,10 @@ export type SimpleFile = Blob;
 `;
 
 exports[`v3 should generate: test/generated/v3/models/SimpleInteger.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a simple number
  */
@@ -4934,10 +4904,10 @@ export type SimpleInteger = number;
 `;
 
 exports[`v3 should generate: test/generated/v3/models/SimpleParameter.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a reusable parameter
  */
@@ -4946,12 +4916,11 @@ export type SimpleParameter = string;
 `;
 
 exports[`v3 should generate: test/generated/v3/models/SimpleReference.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 import type { ModelWithString } from './ModelWithString';
-
 /**
  * This is a simple reference
  */
@@ -4960,10 +4929,10 @@ export type SimpleReference = ModelWithString;
 `;
 
 exports[`v3 should generate: test/generated/v3/models/SimpleString.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a simple string
  */
@@ -4972,10 +4941,10 @@ export type SimpleString = string;
 `;
 
 exports[`v3 should generate: test/generated/v3/models/SimpleStringWithPattern.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
-
 /**
  * This is a simple string
  */
@@ -4984,7 +4953,8 @@ export type SimpleStringWithPattern = string | null;
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$_default.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $_default = {
@@ -4998,7 +4968,8 @@ export const $_default = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ArrayWithArray.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ArrayWithArray = {
@@ -5014,7 +4985,8 @@ export const $ArrayWithArray = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ArrayWithBooleans.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ArrayWithBooleans = {
@@ -5027,7 +4999,8 @@ export const $ArrayWithBooleans = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ArrayWithNumbers.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ArrayWithNumbers = {
@@ -5040,7 +5013,8 @@ export const $ArrayWithNumbers = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ArrayWithProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ArrayWithProperties = {
@@ -5060,7 +5034,8 @@ export const $ArrayWithProperties = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ArrayWithReferences.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ArrayWithReferences = {
@@ -5073,7 +5048,8 @@ export const $ArrayWithReferences = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ArrayWithStrings.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ArrayWithStrings = {
@@ -5086,7 +5062,8 @@ export const $ArrayWithStrings = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$CommentWithBackticks.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CommentWithBackticks = {
@@ -5097,21 +5074,22 @@ export const $CommentWithBackticks = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$CommentWithBreaks.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CommentWithBreaks = {
     type: 'number',
     description: \`Testing multiline comments in string: First line
     Second line
-
     Fourth line\`,
 } as const;
 "
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$CommentWithExpressionPlaceholders.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CommentWithExpressionPlaceholders = {
@@ -5122,7 +5100,8 @@ export const $CommentWithExpressionPlaceholders = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$CommentWithQuotes.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CommentWithQuotes = {
@@ -5133,7 +5112,8 @@ export const $CommentWithQuotes = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$CommentWithReservedCharacters.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CommentWithReservedCharacters = {
@@ -5144,7 +5124,8 @@ export const $CommentWithReservedCharacters = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$CommentWithSlashes.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CommentWithSlashes = {
@@ -5155,7 +5136,8 @@ export const $CommentWithSlashes = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$CompositionBaseModel.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CompositionBaseModel = {
@@ -5173,7 +5155,8 @@ export const $CompositionBaseModel = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$CompositionExtendedModel.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CompositionExtendedModel = {
@@ -5202,7 +5185,8 @@ export const $CompositionExtendedModel = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$CompositionWithAllOfAndNullable.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CompositionWithAllOfAndNullable = {
@@ -5231,7 +5215,8 @@ export const $CompositionWithAllOfAndNullable = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$CompositionWithAnyOf.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CompositionWithAnyOf = {
@@ -5255,7 +5240,8 @@ export const $CompositionWithAnyOf = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$CompositionWithAnyOfAndNullable.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CompositionWithAnyOfAndNullable = {
@@ -5284,7 +5270,8 @@ export const $CompositionWithAnyOfAndNullable = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$CompositionWithAnyOfAnonymous.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CompositionWithAnyOfAnonymous = {
@@ -5313,7 +5300,8 @@ export const $CompositionWithAnyOfAnonymous = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$CompositionWithOneOf.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CompositionWithOneOf = {
@@ -5337,7 +5325,8 @@ export const $CompositionWithOneOf = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$CompositionWithOneOfAndComplexArrayDictionary.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CompositionWithOneOfAndComplexArrayDictionary = {
@@ -5368,7 +5357,8 @@ export const $CompositionWithOneOfAndComplexArrayDictionary = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$CompositionWithOneOfAndNullable.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CompositionWithOneOfAndNullable = {
@@ -5397,7 +5387,8 @@ export const $CompositionWithOneOfAndNullable = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$CompositionWithOneOfAndSimpleArrayDictionary.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CompositionWithOneOfAndSimpleArrayDictionary = {
@@ -5423,7 +5414,8 @@ export const $CompositionWithOneOfAndSimpleArrayDictionary = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$CompositionWithOneOfAndSimpleDictionary.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CompositionWithOneOfAndSimpleDictionary = {
@@ -5446,7 +5438,8 @@ export const $CompositionWithOneOfAndSimpleDictionary = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$CompositionWithOneOfAnonymous.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CompositionWithOneOfAnonymous = {
@@ -5475,7 +5468,8 @@ export const $CompositionWithOneOfAnonymous = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$CompositionWithOneOfDiscriminator.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $CompositionWithOneOfDiscriminator = {
@@ -5491,7 +5485,8 @@ export const $CompositionWithOneOfDiscriminator = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$DeprecatedModel.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $DeprecatedModel = {
@@ -5507,7 +5502,8 @@ export const $DeprecatedModel = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$DictionaryWithArray.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $DictionaryWithArray = {
@@ -5523,7 +5519,8 @@ export const $DictionaryWithArray = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$DictionaryWithDictionary.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $DictionaryWithDictionary = {
@@ -5539,7 +5536,8 @@ export const $DictionaryWithDictionary = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$DictionaryWithProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $DictionaryWithProperties = {
@@ -5559,7 +5557,8 @@ export const $DictionaryWithProperties = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$DictionaryWithReference.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $DictionaryWithReference = {
@@ -5572,7 +5571,8 @@ export const $DictionaryWithReference = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$DictionaryWithString.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $DictionaryWithString = {
@@ -5585,7 +5585,8 @@ export const $DictionaryWithString = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$EnumFromDescription.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $EnumFromDescription = {
@@ -5596,7 +5597,8 @@ export const $EnumFromDescription = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$EnumWithExtensions.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $EnumWithExtensions = {
@@ -5606,7 +5608,8 @@ export const $EnumWithExtensions = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$EnumWithNumbers.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $EnumWithNumbers = {
@@ -5616,7 +5619,8 @@ export const $EnumWithNumbers = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$EnumWithStrings.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $EnumWithStrings = {
@@ -5626,7 +5630,8 @@ export const $EnumWithStrings = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$File.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $File = {
@@ -5663,7 +5668,8 @@ export const $File = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$FreeFormObjectWithAdditionalPropertiesEqEmptyObject.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $FreeFormObjectWithAdditionalPropertiesEqEmptyObject = {
@@ -5677,7 +5683,8 @@ export const $FreeFormObjectWithAdditionalPropertiesEqEmptyObject = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$FreeFormObjectWithAdditionalPropertiesEqTrue.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $FreeFormObjectWithAdditionalPropertiesEqTrue = {
@@ -5691,7 +5698,8 @@ export const $FreeFormObjectWithAdditionalPropertiesEqTrue = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$FreeFormObjectWithoutAdditionalProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $FreeFormObjectWithoutAdditionalProperties = {
@@ -5705,7 +5713,8 @@ export const $FreeFormObjectWithoutAdditionalProperties = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ModelCircle.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelCircle = {
@@ -5724,7 +5733,8 @@ export const $ModelCircle = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ModelSquare.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelSquare = {
@@ -5743,7 +5753,8 @@ export const $ModelSquare = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ModelThatExtends.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelThatExtends = {
@@ -5766,7 +5777,8 @@ export const $ModelThatExtends = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ModelThatExtendsExtends.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelThatExtendsExtends = {
@@ -5791,7 +5803,8 @@ export const $ModelThatExtendsExtends = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ModelWithArray.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithArray = {
@@ -5821,7 +5834,8 @@ export const $ModelWithArray = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ModelWithBoolean.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithBoolean = {
@@ -5837,7 +5851,8 @@ export const $ModelWithBoolean = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ModelWithCircularReference.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithCircularReference = {
@@ -5852,7 +5867,8 @@ export const $ModelWithCircularReference = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ModelWithDictionary.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithDictionary = {
@@ -5870,7 +5886,8 @@ export const $ModelWithDictionary = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ModelWithDuplicateImports.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithDuplicateImports = {
@@ -5891,7 +5908,8 @@ export const $ModelWithDuplicateImports = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ModelWithDuplicateProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithDuplicateProperties = {
@@ -5906,7 +5924,8 @@ export const $ModelWithDuplicateProperties = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ModelWithEnum.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithEnum = {
@@ -5928,7 +5947,8 @@ export const $ModelWithEnum = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ModelWithEnumFromDescription.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithEnumFromDescription = {
@@ -5944,7 +5964,8 @@ export const $ModelWithEnumFromDescription = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ModelWithInteger.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithInteger = {
@@ -5960,7 +5981,8 @@ export const $ModelWithInteger = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ModelWithNestedEnums.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithNestedEnums = {
@@ -5998,7 +6020,8 @@ export const $ModelWithNestedEnums = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ModelWithNestedProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithNestedProperties = {
@@ -6030,7 +6053,8 @@ export const $ModelWithNestedProperties = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ModelWithNullableString.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithNullableString = {
@@ -6064,7 +6088,8 @@ export const $ModelWithNullableString = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ModelWithOrderedProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithOrderedProperties = {
@@ -6085,7 +6110,8 @@ export const $ModelWithOrderedProperties = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ModelWithPattern.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithPattern = {
@@ -6129,7 +6155,8 @@ export const $ModelWithPattern = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ModelWithProperties.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithProperties = {
@@ -6184,7 +6211,8 @@ export const $ModelWithProperties = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ModelWithReference.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithReference = {
@@ -6199,7 +6227,8 @@ export const $ModelWithReference = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$ModelWithString.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $ModelWithString = {
@@ -6215,7 +6244,8 @@ export const $ModelWithString = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$Pageable.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $Pageable = {
@@ -6241,7 +6271,8 @@ export const $Pageable = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$SimpleBoolean.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $SimpleBoolean = {
@@ -6252,7 +6283,8 @@ export const $SimpleBoolean = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$SimpleFile.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $SimpleFile = {
@@ -6263,7 +6295,8 @@ export const $SimpleFile = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$SimpleInteger.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $SimpleInteger = {
@@ -6274,7 +6307,8 @@ export const $SimpleInteger = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$SimpleParameter.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $SimpleParameter = {
@@ -6285,7 +6319,8 @@ export const $SimpleParameter = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$SimpleReference.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $SimpleReference = {
@@ -6296,7 +6331,8 @@ export const $SimpleReference = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$SimpleString.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $SimpleString = {
@@ -6307,7 +6343,8 @@ export const $SimpleString = {
 `;
 
 exports[`v3 should generate: test/generated/v3/schemas/$SimpleStringWithPattern.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 export const $SimpleStringWithPattern = {
@@ -6321,15 +6358,14 @@ export const $SimpleStringWithPattern = {
 `;
 
 exports[`v3 should generate: test/generated/v3/services/CollectionFormatService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class CollectionFormatService {
-
     /**
      * @param parameterArrayCsv This is an array parameter that is sent as csv format (comma-separated values)
      * @param parameterArraySsv This is an array parameter that is sent as ssv format (space-separated values)
@@ -6357,26 +6393,23 @@ export class CollectionFormatService {
             },
         });
     }
-
 }
 "
 `;
 
 exports[`v3 should generate: test/generated/v3/services/ComplexService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { ModelWithArray } from '../models/ModelWithArray';
 import type { ModelWithDictionary } from '../models/ModelWithDictionary';
 import type { ModelWithEnum } from '../models/ModelWithEnum';
 import type { ModelWithString } from '../models/ModelWithString';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class ComplexService {
-
     /**
      * @param parameterObject Parameter containing object
      * @param parameterReference Parameter containing reference
@@ -6406,7 +6439,6 @@ export class ComplexService {
             },
         });
     }
-
     /**
      * @param id
      * @param requestBody
@@ -6439,21 +6471,19 @@ export class ComplexService {
             mediaType: 'application/json-patch+json',
         });
     }
-
 }
 "
 `;
 
 exports[`v3 should generate: test/generated/v3/services/DefaultService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class DefaultService {
-
     /**
      * @throws ApiError
      */
@@ -6463,23 +6493,20 @@ export class DefaultService {
             url: '/api/v{api-version}/no-tag',
         });
     }
-
 }
 "
 `;
 
 exports[`v3 should generate: test/generated/v3/services/DefaultsService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { ModelWithString } from '../models/ModelWithString';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class DefaultsService {
-
     /**
      * @param parameterString This is a simple string with default value
      * @param parameterNumber This is a simple number with default value
@@ -6509,7 +6536,6 @@ export class DefaultsService {
             },
         });
     }
-
     /**
      * @param parameterString This is a simple string that is optional with default value
      * @param parameterNumber This is a simple number that is optional with default value
@@ -6539,7 +6565,6 @@ export class DefaultsService {
             },
         });
     }
-
     /**
      * @param parameterStringWithNoDefault This is a string with no default
      * @param parameterOptionalStringWithDefault This is a optional string with default
@@ -6576,23 +6601,20 @@ export class DefaultsService {
             },
         });
     }
-
 }
 "
 `;
 
 exports[`v3 should generate: test/generated/v3/services/DeprecatedService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { DeprecatedModel } from '../models/DeprecatedModel';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class DeprecatedService {
-
     /**
      * @deprecated
      * @param parameter This parameter is deprecated
@@ -6609,21 +6631,19 @@ export class DeprecatedService {
             },
         });
     }
-
 }
 "
 `;
 
 exports[`v3 should generate: test/generated/v3/services/DescriptionsService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class DescriptionsService {
-
     /**
      * @param parameterWithBreaks Testing multiline comments in string: First line
      * Second line
@@ -6657,21 +6677,19 @@ export class DescriptionsService {
             },
         });
     }
-
 }
 "
 `;
 
 exports[`v3 should generate: test/generated/v3/services/DuplicateService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class DuplicateService {
-
     /**
      * @throws ApiError
      */
@@ -6681,7 +6699,6 @@ export class DuplicateService {
             url: '/api/v{api-version}/duplicate',
         });
     }
-
     /**
      * @throws ApiError
      */
@@ -6691,7 +6708,6 @@ export class DuplicateService {
             url: '/api/v{api-version}/duplicate',
         });
     }
-
     /**
      * @throws ApiError
      */
@@ -6701,7 +6717,6 @@ export class DuplicateService {
             url: '/api/v{api-version}/duplicate',
         });
     }
-
     /**
      * @throws ApiError
      */
@@ -6711,21 +6726,19 @@ export class DuplicateService {
             url: '/api/v{api-version}/duplicate',
         });
     }
-
 }
 "
 `;
 
 exports[`v3 should generate: test/generated/v3/services/ErrorService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class ErrorService {
-
     /**
      * @param status Status code to return
      * @returns any Custom message: Successful response
@@ -6748,23 +6761,20 @@ export class ErrorService {
             },
         });
     }
-
 }
 "
 `;
 
 exports[`v3 should generate: test/generated/v3/services/FormDataService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { ModelWithString } from '../models/ModelWithString';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class FormDataService {
-
     /**
      * @param parameter This is a reusable parameter
      * @param formData A reusable request body
@@ -6784,21 +6794,19 @@ export class FormDataService {
             mediaType: 'multipart/form-data',
         });
     }
-
 }
 "
 `;
 
 exports[`v3 should generate: test/generated/v3/services/HeaderService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class HeaderService {
-
     /**
      * @returns string Successful response
      * @throws ApiError
@@ -6814,23 +6822,20 @@ export class HeaderService {
             },
         });
     }
-
 }
 "
 `;
 
 exports[`v3 should generate: test/generated/v3/services/MultipartService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { ModelWithString } from '../models/ModelWithString';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class MultipartService {
-
     /**
      * @param formData
      * @throws ApiError
@@ -6848,7 +6853,6 @@ export class MultipartService {
             mediaType: 'multipart/form-data',
         });
     }
-
     /**
      * @returns any OK
      * @throws ApiError
@@ -6865,21 +6869,19 @@ export class MultipartService {
             url: '/api/v{api-version}/multipart',
         });
     }
-
 }
 "
 `;
 
 exports[`v3 should generate: test/generated/v3/services/MultipleTags1Service.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class MultipleTags1Service {
-
     /**
      * @returns void
      * @throws ApiError
@@ -6890,7 +6892,6 @@ export class MultipleTags1Service {
             url: '/api/v{api-version}/multiple-tags/a',
         });
     }
-
     /**
      * @returns void
      * @throws ApiError
@@ -6901,21 +6902,19 @@ export class MultipleTags1Service {
             url: '/api/v{api-version}/multiple-tags/b',
         });
     }
-
 }
 "
 `;
 
 exports[`v3 should generate: test/generated/v3/services/MultipleTags2Service.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class MultipleTags2Service {
-
     /**
      * @returns void
      * @throws ApiError
@@ -6926,7 +6925,6 @@ export class MultipleTags2Service {
             url: '/api/v{api-version}/multiple-tags/a',
         });
     }
-
     /**
      * @returns void
      * @throws ApiError
@@ -6937,21 +6935,19 @@ export class MultipleTags2Service {
             url: '/api/v{api-version}/multiple-tags/b',
         });
     }
-
 }
 "
 `;
 
 exports[`v3 should generate: test/generated/v3/services/MultipleTags3Service.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class MultipleTags3Service {
-
     /**
      * @returns void
      * @throws ApiError
@@ -6962,21 +6958,19 @@ export class MultipleTags3Service {
             url: '/api/v{api-version}/multiple-tags/b',
         });
     }
-
 }
 "
 `;
 
 exports[`v3 should generate: test/generated/v3/services/NoContentService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class NoContentService {
-
     /**
      * @returns void
      * @throws ApiError
@@ -6987,24 +6981,21 @@ export class NoContentService {
             url: '/api/v{api-version}/no-content',
         });
     }
-
 }
 "
 `;
 
 exports[`v3 should generate: test/generated/v3/services/ParametersService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { ModelWithString } from '../models/ModelWithString';
 import type { Pageable } from '../models/Pageable';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class ParametersService {
-
     /**
      * @param parameterHeader This is the parameter that goes into the header
      * @param parameterQuery This is the parameter that goes into the query params
@@ -7044,7 +7035,6 @@ export class ParametersService {
             mediaType: 'application/json',
         });
     }
-
     /**
      * @param parameterHeader This is the parameter that goes into the request header
      * @param parameterQuery This is the parameter that goes into the request query params
@@ -7093,7 +7083,6 @@ export class ParametersService {
             mediaType: 'application/json',
         });
     }
-
     /**
      * @param requestBody This is a required parameter
      * @param parameter This is an optional parameter
@@ -7113,7 +7102,6 @@ export class ParametersService {
             mediaType: 'application/json',
         });
     }
-
     /**
      * @param parameter This is a required parameter
      * @param requestBody This is an optional parameter
@@ -7133,23 +7121,20 @@ export class ParametersService {
             mediaType: 'application/json',
         });
     }
-
 }
 "
 `;
 
 exports[`v3 should generate: test/generated/v3/services/RequestBodyService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { ModelWithString } from '../models/ModelWithString';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class RequestBodyService {
-
     /**
      * @param parameter This is a reusable parameter
      * @param requestBody A reusable request body
@@ -7169,25 +7154,22 @@ export class RequestBodyService {
             mediaType: 'application/json',
         });
     }
-
 }
 "
 `;
 
 exports[`v3 should generate: test/generated/v3/services/ResponseService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { ModelThatExtends } from '../models/ModelThatExtends';
 import type { ModelThatExtendsExtends } from '../models/ModelThatExtendsExtends';
 import type { ModelWithString } from '../models/ModelWithString';
-
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class ResponseService {
-
     /**
      * @returns ModelWithString
      * @throws ApiError
@@ -7198,7 +7180,6 @@ export class ResponseService {
             url: '/api/v{api-version}/response',
         });
     }
-
     /**
      * @returns ModelWithString Message for default response
      * @throws ApiError
@@ -7214,7 +7195,6 @@ export class ResponseService {
             },
         });
     }
-
     /**
      * @returns any Message for 200 response
      * @returns ModelWithString Message for default response
@@ -7237,21 +7217,19 @@ export class ResponseService {
             },
         });
     }
-
 }
 "
 `;
 
 exports[`v3 should generate: test/generated/v3/services/SimpleService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class SimpleService {
-
     /**
      * @throws ApiError
      */
@@ -7261,7 +7239,6 @@ export class SimpleService {
             url: '/api/v{api-version}/simple',
         });
     }
-
     /**
      * @throws ApiError
      */
@@ -7271,7 +7248,6 @@ export class SimpleService {
             url: '/api/v{api-version}/simple',
         });
     }
-
     /**
      * @throws ApiError
      */
@@ -7281,7 +7257,6 @@ export class SimpleService {
             url: '/api/v{api-version}/simple',
         });
     }
-
     /**
      * @throws ApiError
      */
@@ -7291,7 +7266,6 @@ export class SimpleService {
             url: '/api/v{api-version}/simple',
         });
     }
-
     /**
      * @throws ApiError
      */
@@ -7301,7 +7275,6 @@ export class SimpleService {
             url: '/api/v{api-version}/simple',
         });
     }
-
     /**
      * @throws ApiError
      */
@@ -7311,7 +7284,6 @@ export class SimpleService {
             url: '/api/v{api-version}/simple',
         });
     }
-
     /**
      * @throws ApiError
      */
@@ -7321,21 +7293,19 @@ export class SimpleService {
             url: '/api/v{api-version}/simple',
         });
     }
-
 }
 "
 `;
 
 exports[`v3 should generate: test/generated/v3/services/TypesService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class TypesService {
-
     /**
      * @param parameterArray This is an array parameter
      * @param parameterDictionary This is a dictionary parameter
@@ -7378,21 +7348,19 @@ export class TypesService {
             },
         });
     }
-
 }
 "
 `;
 
 exports[`v3 should generate: test/generated/v3/services/UploadService.ts 1`] = `
-"/* istanbul ignore file */
+"/* generated using openapi-typescript-codegen -- do no edit */
+/* istanbul ignore file */
 /* tslint:disable */
 /* eslint-disable */
 import type { CancelablePromise } from '../core/CancelablePromise';
 import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
-
 export class UploadService {
-
     /**
      * @param file Supply a file reference for upload
      * @returns boolean
@@ -7409,7 +7377,6 @@ export class UploadService {
             },
         });
     }
-
 }
 "
 `;
