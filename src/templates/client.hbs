@@ -61,7 +61,7 @@ export class {{{clientName}}} {
 
 	constructor(config?: Partial<OpenAPIConfig>, HttpRequest: HttpRequestConstructor = {{{httpRequest}}}) {
 		this.request = new HttpRequest({
-			BASE: process.env.ANYROAD_API_BASE_URL ?? (config?.BASE ?? '{{{server}}}'),
+			BASE: config?.BASE ?? '{{{server}}}',
 			VERSION: config?.VERSION ?? '{{{version}}}',
 			WITH_CREDENTIALS: config?.WITH_CREDENTIALS ?? false,
 			CREDENTIALS: config?.CREDENTIALS ?? 'include',
