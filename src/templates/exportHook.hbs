@@ -17,17 +17,25 @@ const client = new {{clientName}}();
 				return useQuery<{{>result}}>(['{{ camelCase service}}', '{{ camelCase name }}', {{#each parameters}}{{name}}, {{/each}}], async () => {
 					return client.{{camelCase service}}.{{name}}({{#if parameters}}{
 						{{#each parameters}}
-						{{name}},
-						{{/each}}
-					}{{/if}});
-				}, options);
+							 	{{#if name}}
+							 		{{name}},
+							    {{else}}
+							      _,
+								{{/if}}
+				   		{{/each}}
+			  }{{/if}});
+		  }, options);
 			};
 		{{else}}
 			export const use{{pascalCase name}} = (options?: UseMutationOptions<{{>result}}>) => {
 				return useMutation<{{>result}}, any, any>(async ({{>parameters}}) => {
 					return client.{{camelCase service}}.{{name}}({{#if parameters}}{
 						{{#each parameters}}
-						{{name}},
+						 	{{#if name}}
+								{{name}},
+							{{else}}
+								_,
+							{{/if}}
 						{{/each}}
 					}{{/if}});
 				}, options);
