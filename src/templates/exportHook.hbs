@@ -9,19 +9,17 @@ import { {{clientName}} } from '../../client';
 	{{/each}}
 {{/if}}
 
-const client = new {{clientName}}();
+const client = new {{clientName}}({
+	BASE: process.env.ANYROAD_API_BASE_URL
+});
 
 {{#each operations}}
 		{{#equals method 'GET'}}
 			export const use{{pascalCase name}} = ({{>parameters}}, options?: UseQueryOptions<{{>result}}>) => {
-				return useQuery<{{>result}}>(['{{ camelCase service}}', '{{ camelCase name }}', {{#each parameters}}{{name}}, {{/each}}], async () => {
+				return useQuery<{{>result}}>(['{{ camelCase service }}', '{{ camelCase name }}', {{#each parameters}}{{name}}{{/each}}], async () => {
 					return client.{{camelCase service}}.{{name}}({{#if parameters}}{
 						{{#each parameters}}
-							 	{{#if name}}
-							 		{{name}},
-							    {{else}}
-							      _,
-								{{/if}}
+							{{name}},
 				   		{{/each}}
 			  }{{/if}});
 		  }, options);
@@ -31,11 +29,7 @@ const client = new {{clientName}}();
 				return useMutation<{{>result}}, any, any>(async ({{>parameters}}) => {
 					return client.{{camelCase service}}.{{name}}({{#if parameters}}{
 						{{#each parameters}}
-						 	{{#if name}}
-								{{name}},
-							{{else}}
-								_,
-							{{/if}}
+							{{name}},
 						{{/each}}
 					}{{/if}});
 				}, options);
