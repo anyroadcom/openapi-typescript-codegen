@@ -9,9 +9,7 @@ import { {{clientName}} } from '../../client';
 	{{/each}}
 {{/if}}
 
-const client = new {{clientName}}({
-	BASE: process.env.ANYROAD_API_BASE_URL
-});
+const client = new {{clientName}}();
 
 {{#each operations}}
 		{{#equals method 'GET'}}
