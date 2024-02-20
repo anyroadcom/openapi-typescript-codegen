@@ -4025,8 +4025,8 @@ var templateClient = {"1":function(container,depth0,helpers,partials,data) {
         return undefined
     };
 
-  return "@NgModule({\n	imports: [HttpClientModule],\n	providers: [\n		{\n			provide: OpenAPI,\n			useValue: {\n				BASE: OpenAPI?.BASE ?? '"
-    + ((stack1 = alias2(alias1(depth0, "server", {"start":{"line":30,"column":31},"end":{"line":30,"column":37}} ), depth0)) != null ? stack1 : "")
+  return "@NgModule({\n	imports: [HttpClientModule],\n	providers: [\n		{\n			provide: OpenAPI,\n			useValue: {\n				BASE: config?.BASE ?? process.env.ANYROAD_API_BASE_URL ?? '"
+    + ((stack1 = alias2(alias1(depth0, "server", {"start":{"line":30,"column":65},"end":{"line":30,"column":71}} ), depth0)) != null ? stack1 : "")
     + "',\n				VERSION: OpenAPI?.VERSION ?? '"
     + ((stack1 = alias2(alias1(depth0, "version", {"start":{"line":31,"column":37},"end":{"line":31,"column":44}} ), depth0)) != null ? stack1 : "")
     + "',\n				WITH_CREDENTIALS: OpenAPI?.WITH_CREDENTIALS ?? false,\n				CREDENTIALS: OpenAPI?.CREDENTIALS ?? 'include',\n				TOKEN: OpenAPI?.TOKEN,\n				USERNAME: OpenAPI?.USERNAME,\n				PASSWORD: OpenAPI?.PASSWORD,\n				HEADERS: OpenAPI?.HEADERS,\n				ENCODE_PATH: OpenAPI?.ENCODE_PATH,\n			} as OpenAPIConfig,\n		},\n		{\n			provide: BaseHttpRequest,\n			useClass: AngularHttpRequest,\n		},\n"
@@ -4060,8 +4060,8 @@ var templateClient = {"1":function(container,depth0,helpers,partials,data) {
     + ((stack1 = lookupProperty(helpers,"each").call(alias3,lookupProperty(depth0,"services"),{"name":"each","hash":{},"fn":container.program(12, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":56,"column":1},"end":{"line":58,"column":10}}})) != null ? stack1 : "")
     + "\n	public readonly request: BaseHttpRequest;\n\n	constructor(config?: Partial<OpenAPIConfig>, HttpRequest: HttpRequestConstructor = "
     + ((stack1 = alias2(alias1(depth0, "httpRequest", {"start":{"line":62,"column":87},"end":{"line":62,"column":98}} ), depth0)) != null ? stack1 : "")
-    + ") {\n		this.request = new HttpRequest({\n			BASE: config?.BASE ?? '"
-    + ((stack1 = alias2(alias1(depth0, "server", {"start":{"line":64,"column":29},"end":{"line":64,"column":35}} ), depth0)) != null ? stack1 : "")
+    + ") {\n		this.request = new HttpRequest({\n			BASE: config?.BASE ?? process.env.ANYROAD_API_BASE_URL ?? '"
+    + ((stack1 = alias2(alias1(depth0, "server", {"start":{"line":64,"column":64},"end":{"line":64,"column":70}} ), depth0)) != null ? stack1 : "")
     + "',\n			VERSION: config?.VERSION ?? '"
     + ((stack1 = alias2(alias1(depth0, "version", {"start":{"line":65,"column":35},"end":{"line":65,"column":42}} ), depth0)) != null ? stack1 : "")
     + "',\n			WITH_CREDENTIALS: config?.WITH_CREDENTIALS ?? false,\n			CREDENTIALS: config?.CREDENTIALS ?? 'include',\n			TOKEN: config?.TOKEN,\n			USERNAME: config?.USERNAME,\n			PASSWORD: config?.PASSWORD,\n			HEADERS: config?.HEADERS,\n			ENCODE_PATH: config?.ENCODE_PATH,\n		});\n\n"
