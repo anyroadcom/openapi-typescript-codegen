@@ -1,7 +1,7 @@
 {{>header}}
+import { useQuery, useMutation } from '@tanstack/react-query';
+import type { UseQueryOptions, UseMutationOptions } from '@tanstack/react-query';
 
-import { useQuery, useMutation } from '@anyroad/hooks';
-import type { UseQueryOptions, UseMutationOptions } from '@anyroad/hooks';
 import { {{clientName}} } from '../../client';
 {{#if imports}}
 	{{#each imports}}
@@ -14,23 +14,34 @@ const client = new {{clientName}}();
 {{#each operations}}
 		{{#equals method 'GET'}}
 			export const use{{pascalCase name}} = ({{#if parameters}}{{>parameters}}{{else}}_: any{{/if}}, options?: UseQueryOptions<{{>result}}>) => {
-				return useQuery<{{>result}}>(['{{ camelCase service}}', '{{ camelCase name }}', {{#each parameters}}{{name}}, {{/each}}], async () => {
-					return client.{{camelCase service}}.{{name}}({{#if parameters}}{
-						{{#each parameters}}
-							{{name}},
-				   		{{/each}}
-			  }{{/if}});
-		  }, options);
+				return useQuery<{{>result}}>({
+					queryKey: ['{{ camelCase service}}', '{{ camelCase name }}', {{#each parameters}}{{name}}, {{/each}}],
+				 	queryFn: async () => {
+						 return client.{{camelCase service}}.{{name}}({{#if parameters}}{
+							  {{#each parameters}}
+									  {{#if name}}
+										   {{name}},
+									  {{else}}
+										_,
+									  {{/if}}
+							  {{/each}}
+				   		 }{{/if}});
+					  },
+					...options
+		  		});
 			};
 		{{else}}
 			export const use{{pascalCase name}} = (options?: UseMutationOptions<{{>result}}>) => {
-				return useMutation<{{>result}}, any, any>(async ({{>parameters}}) => {
-					return client.{{camelCase service}}.{{name}}({{#if parameters}}{
-						{{#each parameters}}
-							{{name}},
-						{{/each}}
-					}{{/if}});
-				}, options);
+				return useMutation<{{>result}}, any, any>({
+					mutationFn: async ({{>parameters}}) => {
+						 return client.{{camelCase service}}.{{name}}({{#if parameters}}{
+							  {{#each parameters}}
+									  {{name}},
+							  {{/each}}
+						 }{{/if}});
+					},
+					...options
+				});
 			};
 		{{/equals}}
 {{/each}}
