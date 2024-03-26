@@ -5254,9 +5254,9 @@ var templateExportHook = {"1":function(container,depth0,helpers,partials,data) {
     + ((stack1 = lookupProperty(helpers,"pascalCase").call(alias1,lookupProperty(depth0,"name"),{"name":"pascalCase","hash":{},"data":data,"loc":{"start":{"line":16,"column":19},"end":{"line":16,"column":38}}})) != null ? stack1 : "")
     + " = ("
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"parameters"),{"name":"if","hash":{},"fn":container.program(6, data, 0),"inverse":container.program(8, data, 0),"data":data,"loc":{"start":{"line":16,"column":42},"end":{"line":16,"column":96}}})) != null ? stack1 : "")
-    + ", options?: UseQueryOptions<"
+    + ", options?: Partial<UseQueryOptions<"
     + ((stack1 = container.invokePartial(lookupProperty(partials,"result"),depth0,{"name":"result","data":data,"helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
-    + ">) => {\n				return useQuery<"
+    + ">>) => {\n				return useQuery<"
     + ((stack1 = container.invokePartial(lookupProperty(partials,"result"),depth0,{"name":"result","data":data,"helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + ">({\n					queryKey: ['"
     + ((stack1 = lookupProperty(helpers,"camelCase").call(alias1,lookupProperty(depth0,"service"),{"name":"camelCase","hash":{},"data":data,"loc":{"start":{"line":18,"column":17},"end":{"line":18,"column":39}}})) != null ? stack1 : "")
@@ -5325,9 +5325,9 @@ var templateExportHook = {"1":function(container,depth0,helpers,partials,data) {
 
   return "			export const use"
     + ((stack1 = lookupProperty(helpers,"pascalCase").call(alias1,lookupProperty(depth0,"name"),{"name":"pascalCase","hash":{},"data":data,"loc":{"start":{"line":34,"column":19},"end":{"line":34,"column":38}}})) != null ? stack1 : "")
-    + " = (options?: UseMutationOptions<"
+    + " = (options?: Partial<UseMutationOptions<"
     + ((stack1 = container.invokePartial(lookupProperty(partials,"result"),depth0,{"name":"result","data":data,"helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
-    + ">) => {\n				return useMutation<"
+    + ">>) => {\n				return useMutation<"
     + ((stack1 = container.invokePartial(lookupProperty(partials,"result"),depth0,{"name":"result","data":data,"helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
     + ", any, any>({\n					mutationFn: async ("
     + ((stack1 = container.invokePartial(lookupProperty(partials,"parameters"),depth0,{"name":"parameters","data":data,"helpers":helpers,"partials":partials,"decorators":container.decorators})) != null ? stack1 : "")
