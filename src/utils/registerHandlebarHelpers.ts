@@ -36,6 +36,13 @@ export const registerHandlebarHelpers = (root: {
     );
 
     Handlebars.registerHelper(
+        'contains',
+        function (this: any, value: string, search: string, options: Handlebars.HelperOptions): string {
+            return value.includes(search) ? options.fn(this) : options.inverse(this);
+        }
+    );
+
+    Handlebars.registerHelper(
         'containsSpaces',
         function (this: any, value: string, options: Handlebars.HelperOptions): string {
             return /\s+/.test(value) ? options.fn(this) : options.inverse(this);
