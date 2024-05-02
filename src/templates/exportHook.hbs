@@ -1,6 +1,6 @@
 {{>header}}
-import { useQuery, useMutation } from '@tanstack/react-query';
-import type { UseQueryOptions, UseMutationOptions } from '@tanstack/react-query';
+import { useInfiniteQuery, useQuery, useMutation } from '@tanstack/react-query';
+import type { UseInfiniteQueryOptions, UseQueryOptions, UseMutationOptions } from '@tanstack/react-query';
 
 import { {{clientName}} } from '../../client';
 {{#if imports}}
@@ -30,6 +30,34 @@ const client = new {{clientName}}();
 					...options
 		  		});
 			};
+
+			{{#contains name 'List'}}
+				 export const useInfinite{{pascalCase name}} = ({{#if parameters}}{{>parameters}}{{else}}_: any{{/if}}, options?: Partial<UseInfiniteQueryOptions<{{>result}}>>) => {
+					 return useInfiniteQuery<{{>result}}>({
+						 queryKey: ['{{ camelCase service}}', '{{ camelCase name }}', {{#each parameters}}{{name}}, {{/each}}],
+						 queryFn: async ({ pageParam }) => {
+							  return client.{{camelCase service}}.{{name}}({{#if parameters}}{
+									{{#each parameters}}
+										{{#if name}}
+											 {{name}},
+										{{else}}
+											 _,
+										{{/if}},
+										cursor: pageParam
+									{{/each}}
+							   }{{/if}});
+						  },
+						  initialPageParam: null,
+						  getNextPageParam: (lastPage, allPages) => {
+							 const params = new URLSearchParams(lastPage.next_url.split('?')[1]);
+							 return params.get('cursor');
+						  },
+						 ...options
+					 });
+				 };
+			{{/contains}}
+
+
 		{{else}}
 			export const use{{pascalCase name}} = (options?: Partial<UseMutationOptions<{{>result}}>>) => {
 				return useMutation<{{>result}}, any, any>({
