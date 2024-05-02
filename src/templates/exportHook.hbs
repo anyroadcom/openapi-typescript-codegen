@@ -33,23 +33,23 @@ const client = new {{clientName}}();
 
 			{{#contains name 'List'}}
 				 export const useInfinite{{pascalCase name}} = ({{#if parameters}}{{>parameters}}{{else}}_: any{{/if}}, options?: Partial<UseInfiniteQueryOptions<{{>result}}>>) => {
-					 return useInfiniteQuery<{{>result}}>({
-						 queryKey: ['{{ camelCase service}}', '{{ camelCase name }}', {{#each parameters}}{{name}}, {{/each}}],
+					 return useInfiniteQuery<any>({
+				 		 queryKey: ['{{ camelCase service}}', '{{ camelCase name }}', {{#each parameters}}{{name}}, {{/each}}],
 						 queryFn: async ({ pageParam }) => {
 							  return client.{{camelCase service}}.{{name}}({{#if parameters}}{
 									{{#each parameters}}
-										{{#if name}}
-											 {{name}},
+										{{#equals name 'cursor'}}
+
 										{{else}}
-											 _,
-										{{/if}},
-										cursor: pageParam
+											 {{name}},
+										{{/equals}},
 									{{/each}}
+				 					cursor: pageParam,
 							   }{{/if}});
 						  },
 						  initialPageParam: null,
 						  getNextPageParam: (lastPage, allPages) => {
-							 const params = new URLSearchParams(lastPage.next_url.split('?')[1]);
+							 const params = new URLSearchParams(lastPage?.next_url?.split('?')?.[1]);
 							 return params.get('cursor');
 						  },
 						 ...options
