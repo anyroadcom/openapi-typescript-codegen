@@ -32,8 +32,8 @@ const client = new {{clientName}}();
 			};
 
 			{{#contains name 'List'}}
-				 export const useInfinite{{pascalCase name}} = ({{#if parameters}}{{>parameters}}{{else}}_: any{{/if}}, options?: Partial<UseInfiniteQueryOptions<{{>result}}>>) => {
-					 return useInfiniteQuery<any>({
+				 export const useInfinite{{pascalCase name}} = ({{#if parameters}}{{>parameters}}{{else}}_: any{{/if}}, options?: Partial<UseInfiniteQueryOptions<any>>) => {
+					 return useInfiniteQuery<{{>result}}>({
 				 		 queryKey: ['{{ camelCase service}}', '{{ camelCase name }}', {{#each parameters}}{{name}}, {{/each}}],
 						 queryFn: async ({ pageParam }) => {
 							  return client.{{camelCase service}}.{{name}}({{#if parameters}}{
@@ -41,7 +41,11 @@ const client = new {{clientName}}();
 										{{#equals name 'cursor'}}
 
 										{{else}}
-											 {{name}},
+											{{#if name}}
+												{{name}},
+											{{else}}
+													_,
+											{{/if}}
 										{{/equals}},
 									{{/each}}
 				 					cursor: pageParam,
