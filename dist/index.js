@@ -5271,7 +5271,7 @@ var templateExportHook = {"1":function(container,depth0,helpers,partials,data) {
     + "("
     + ((stack1 = lookupProperty(helpers,"if").call(alias1,lookupProperty(depth0,"parameters"),{"name":"if","hash":{},"fn":container.program(12, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":20,"column":52},"end":{"line":28,"column":18}}})) != null ? stack1 : "")
     + ");\n					  },\n					...options\n		  		});\n			};\n\n"
-    + ((stack1 = lookupProperty(helpers,"contains").call(alias1,lookupProperty(depth0,"pascalcase"),lookupProperty(depth0,"name"),"List",{"name":"contains","hash":{},"fn":container.program(18, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":34,"column":3},"end":{"line":61,"column":16}}})) != null ? stack1 : "")
+    + ((stack1 = lookupProperty(helpers,"contains").call(alias1,lookupProperty(depth0,"name"),"List",{"name":"contains","hash":{},"fn":container.program(18, data, 0),"inverse":container.noop,"data":data,"loc":{"start":{"line":34,"column":3},"end":{"line":61,"column":16}}})) != null ? stack1 : "")
     + "\n\n";
 },"6":function(container,depth0,helpers,partials,data) {
     var stack1, lookupProperty = container.lookupProperty || function(parent, propertyName) {
@@ -7205,7 +7205,7 @@ const registerHandlebarHelpers = (root) => {
         return a !== b ? options.fn(this) : options.inverse(this);
     });
     Handlebars.registerHelper('contains', function (value, search, options) {
-        return value.includes(search) ? options.fn(this) : options.inverse(this);
+        return value.toLowerCase().includes(search.toLowerCase()) ? options.fn(this) : options.inverse(this);
     });
     Handlebars.registerHelper('containsSpaces', function (value, options) {
         return /\s+/.test(value) ? options.fn(this) : options.inverse(this);
