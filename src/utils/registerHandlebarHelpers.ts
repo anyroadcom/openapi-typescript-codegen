@@ -38,7 +38,7 @@ export const registerHandlebarHelpers = (root: {
     Handlebars.registerHelper(
         'contains',
         function (this: any, value: string, search: string, options: Handlebars.HelperOptions): string {
-            return value.includes(search) ? options.fn(this) : options.inverse(this);
+            return value.toLowerCase().includes(search.toLowerCase()) ? options.fn(this) : options.inverse(this);
         }
     );
 

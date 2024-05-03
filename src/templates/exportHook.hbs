@@ -31,7 +31,7 @@ const client = new {{clientName}}();
 		  		});
 			};
 
-			{{#contains pascalcase name 'List'}}
+			{{#contains name 'List' }}
 				 export const useInfinite{{pascalCase name}} = ({{#if parameters}}{{>parameters}}{{else}}_: any{{/if}}, options?: Partial<UseInfiniteQueryOptions<any>>) => {
 					 return useInfiniteQuery<{{>result}}>({
 				 		 queryKey: ['{{ camelCase service}}', '{{ camelCase name }}', {{#each parameters}}{{name}}, {{/each}}],
