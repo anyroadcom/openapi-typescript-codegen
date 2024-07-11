@@ -39,13 +39,12 @@ const client = new {{clientName}}();
 							  return client.{{camelCase service}}.{{name}}({{#if parameters}}{
 									{{#each parameters}}
 										{{#equals name 'cursor'}}
-
 										{{else}}
 											{{#if name}}
 												{{name}},
 											{{else}}
 											{{/if}}
-										{{/equals}},
+										{{/equals}}
 									{{/each}}
 				 					cursor: pageParam as string,
 							   }{{/if}});
