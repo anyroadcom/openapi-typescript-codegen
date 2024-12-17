@@ -6,6 +6,11 @@ export const getHeaders = async (config: OpenAPIConfig, options: ApiRequestOptio
 		resolve(options, config.HEADERS),
 	]);
 
+	if (!isStringWithValue(token)) {
+		const SESSION_KEY = '_anyroad_embedded_session_key';
+		token = document?.cookie?.split('; ').find(row => row.startsWith(`${SESSION_KEY}=`))?.split('=')[1];
+	}
+
 	const headers = Object.entries({
 		Accept: 'application/json',
 		...additionalHeaders,
